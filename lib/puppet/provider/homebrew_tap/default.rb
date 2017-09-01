@@ -84,6 +84,7 @@ Puppet::Type.type(:homebrew_tap).provide :default do
         "HOME"            => "/#{homedir_prefix}/#{default_user}",
         "PATH"            => "#{self.class.home}/bin:/usr/bin:/usr/sbin:/bin:/sbin",
         "HOMEBREW_ROOT"   => "#{self.class.home}",
+        "HOMEBREW_NO_AUTO_UPDATE"   => "1",
       },
       :failonfail         => true,
       :uid                => default_user

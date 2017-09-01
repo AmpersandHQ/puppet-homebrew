@@ -89,7 +89,7 @@ Puppet::Type.type(:package).provide :homebrew, :parent => Puppet::Provider::Pack
     unless self.class.const_defined?(:UPDATED_BREW)
       notice "Updating homebrew formulas"
 
-      execute [ "brew", "update" ], command_opts
+      #execute [ "brew", "update" ], command_opts
       self.class.const_set(:UPDATED_BREW, true)
     end
   end
@@ -190,6 +190,7 @@ Puppet::Type.type(:package).provide :homebrew, :parent => Puppet::Provider::Pack
         "PATH"                      => "#{self.class.home}/bin:/usr/bin:/usr/sbin:/bin:/sbin",
         "BOXEN_HOMEBREW_BOTTLE_URL" => bottle_url,
         "HOMEBREW_CACHE"            => self.class.cache,
+        "HOMEBREW_NO_AUTO_UPDATE"   => "1",
       },
       :failonfail         => true,
       :uid                => default_user

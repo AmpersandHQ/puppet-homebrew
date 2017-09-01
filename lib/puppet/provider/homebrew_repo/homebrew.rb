@@ -29,10 +29,10 @@ Puppet::Type.type(:homebrew_repo).provide :homebrew do
   def brew_update
     if Puppet.features.bundled_environment?
       Bundler.with_clean_env do
-        execute(["brew", "update"], brew_command_opts)
+        #execute(["brew", "update"], brew_command_opts)
       end
     else
-      execute(["brew", "update"], brew_command_opts)
+      #execute(["brew", "update"], brew_command_opts)
     end
   end
   
